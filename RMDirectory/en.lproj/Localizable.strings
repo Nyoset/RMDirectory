@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  RMDirectory
+
+  Created by Marc Basquens on 3/14/23.
+  
+*/
+
+"title" = "Rick & Morty cast";
+"noResults" = "No results found";
+"filter" = "Filter";
+"filterBy" = "Filter by:";
+"appeared" = "Appeared in %@ episode";
+"error" = "There was an error retrieving the data";
+"ok" = "Ok";
