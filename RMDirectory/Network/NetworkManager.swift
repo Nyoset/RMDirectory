@@ -7,10 +7,8 @@
 
 import Foundation
 
-
-
 class NetworkManager {
-    static var shared: NetworkManager = {
+    static var instance: NetworkManager = {
         return NetworkManager()
     }()
     
@@ -24,12 +22,4 @@ class NetworkManager {
         
         return .success(decodedData)
     }
-}
-
-enum RMError: Error {
-    case noResults
-    case generic
-    case decoding
-    case request
-    case endOfResults
 }

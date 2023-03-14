@@ -9,9 +9,5 @@ import Foundation
 import SwiftUI
 
 extension Color {
-    static let theme = Color("mortyYellow")
-    static let themeSecondary = Color("mortyGreen")
-    static let themeTertiary = Color("apple")
-    static let background = Color("backgroundColor")
-    static let character = Color("person.crop.square")
+    static let theme = Color("apple")
 }

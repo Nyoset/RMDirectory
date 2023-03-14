@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FilterView: View {
-    @EnvironmentObject var viewModel: CharacterListView.ViewModel
+    @ObservedObject var viewModel: CharacterListView.ViewModel
     
     var body: some View {
         VStack {
@@ -55,12 +55,12 @@ struct FilterView: View {
         Text(text)
             .padding(7)
             .background(
-                (active ? Color.themeTertiary : Color.white)
+                (active ? Color.theme : Color.white)
                     .clipShape(RoundedRectangle(cornerRadius: 16))
             )
             .overlay(
                 RoundedRectangle(cornerRadius: 16)
-                    .stroke(Color.themeTertiary, lineWidth: 2)
+                    .stroke(Color.theme, lineWidth: 2)
             )
             .padding([.leading], 2)
     }

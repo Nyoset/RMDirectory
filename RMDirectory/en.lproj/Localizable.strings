@@ -12,3 +12,4 @@
 "filterBy" = "Filter by:";
 "appeared" = "Appeared in %@ episode";
 "error" = "There was an error retrieving the data";
+"ok" = "Ok";

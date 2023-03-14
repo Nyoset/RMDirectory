@@ -27,7 +27,7 @@ struct CharacterListView: View {
                     .listRowSeparator(.hidden)
                     
                 }.listRowBackground(
-                    Color.themeTertiary
+                    Color.theme
                         .clipped()
                         .cornerRadius(20)
                         .padding([.bottom, .top], 3)
@@ -52,8 +52,7 @@ struct CharacterListView: View {
                 viewModel.loadCharacters()
             }
             .sheet(isPresented: $showSheet) {
-                FilterView()
-                    .environmentObject(viewModel)
+                FilterView(viewModel: viewModel)
                     .presentationDetents([.medium, .height(250)])
                     .presentationDragIndicator(.visible)
             }
@@ -63,7 +62,7 @@ struct CharacterListView: View {
                 }
             }
             .alert(String.error.localize, isPresented: $viewModel.loadingError) {
-                Button("OK", role: .cancel) {}
+                Button(String.ok.localize, role: .cancel) {}
             }
             if viewModel.isLoading {
                 Color.white.opacity(0.7).ignoresSafeArea()

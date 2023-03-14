@@ -37,15 +37,15 @@ class APIRouter {
         return URLRequest(url: url)
     }
     
-    static func getCharacters(filters: [Filter], metadata: ApiResponseInfo? = nil) async -> Result<CharactersResponse, RMError> {
+    static func getCharacters(filters: [Filter], paginationData: ApiResponseInfo? = nil) async -> Result<CharactersResponse, RMError> {
         let request: URLRequest? = {
-            if let metadata = metadata {
+            if let metadata = paginationData {
                 return buildRequest(metadata: metadata)
             } else {
                 return buildRequest(endpoint: .characters(filters))
             }
         }()
         guard let request = request else { return .failure(.endOfResults) }
-        return await NetworkManager.shared.call(request: request)
+        return await NetworkManager.instance.call(request: request)
     }
 }

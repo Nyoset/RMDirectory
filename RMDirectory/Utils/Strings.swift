@@ -21,4 +21,5 @@ extension String {
     static let filterBy = "filterBy"
     static let appeared = "appeared"
     static let error = "error"
+    static let ok = "ok"
 }

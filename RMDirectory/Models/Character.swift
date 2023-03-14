@@ -25,17 +25,3 @@ struct Character: Codable, Identifiable, Hashable {
         URL(string: image)
     }
 }
-
-protocol FilterableBy: RawRepresentable, Codable, CaseIterable {}
-enum CharacterStatus: String, FilterableBy {
-    case alive = "Alive"
-    case dead = "Dead"
-    case unknown = "unknown"
-}
-
-enum CharacterGender: String, FilterableBy {
-    case male = "Male"
-    case female = "Female"
-    case genderless = "Genderless"
-    case unknown = "unknown"
-}
