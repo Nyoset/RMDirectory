@@ -37,6 +37,10 @@
 		44E504B329BB7DA2007E0CCE /* ApiResponseInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E504B229BB7DA2007E0CCE /* ApiResponseInfo.swift */; };
 		44E504B529BB7DF0007E0CCE /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E504B429BB7DF0007E0CCE /* ApiResponse.swift */; };
 		44E504B829BB8CD1007E0CCE /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E504B729BB8CD1007E0CCE /* Colors.swift */; };
+		44F38EF029C9DBB70050C69B /* CharacterListFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F38EEF29C9DBB70050C69B /* CharacterListFactory.swift */; };
+		44F38EF229C9E73F0050C69B /* CharacterDetailFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F38EF129C9E73F0050C69B /* CharacterDetailFactory.swift */; };
+		44F38EF429C9EC840050C69B /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F38EF329C9EC840050C69B /* Mock.swift */; };
+		44F38EF629C9ED460050C69B /* FilterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F38EF529C9ED460050C69B /* FilterFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +95,10 @@
 		44E504B229BB7DA2007E0CCE /* ApiResponseInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponseInfo.swift; sourceTree = "<group>"; };
 		44E504B429BB7DF0007E0CCE /* ApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
 		44E504B729BB8CD1007E0CCE /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		44F38EEF29C9DBB70050C69B /* CharacterListFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListFactory.swift; sourceTree = "<group>"; };
+		44F38EF129C9E73F0050C69B /* CharacterDetailFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailFactory.swift; sourceTree = "<group>"; };
+		44F38EF329C9EC840050C69B /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
+		44F38EF529C9ED460050C69B /* FilterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +150,7 @@
 				44267CC229BA738400FB9424 /* CharacterListViewModel.swift */,
 				44267CC429BA7D9D00FB9424 /* CharacterCell.swift */,
 				443349A529BA513000ADCB74 /* CharacterListView.swift */,
+				44F38EEF29C9DBB70050C69B /* CharacterListFactory.swift */,
 			);
 			path = CharacterList;
 			sourceTree = "<group>";
@@ -219,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				4440562329BF351E00B03DD9 /* FilterView.swift */,
+				44F38EF529C9ED460050C69B /* FilterFactory.swift */,
 			);
 			path = Filter;
 			sourceTree = "<group>";
@@ -239,6 +249,7 @@
 				44E504AC29BB7AC1007E0CCE /* CharacterDetailView.swift */,
 				4447A49229BFD4D900C92B8F /* CharacterDetailViewModel.swift */,
 				44DE3C2429C08EAF003A9304 /* CharacterDetailCellModel.swift */,
+				44F38EF129C9E73F0050C69B /* CharacterDetailFactory.swift */,
 			);
 			path = CharacterDetail;
 			sourceTree = "<group>";
@@ -250,6 +261,7 @@
 				4410EB7A29BCA6B100C70B06 /* Images.swift */,
 				4410EB7C29BCA8D000C70B06 /* Strings.swift */,
 				4410EB9029BCDCD100C70B06 /* BundleDecoder.swift */,
+				44F38EF329C9EC840050C69B /* Mock.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -389,6 +401,7 @@
 				44E504B529BB7DF0007E0CCE /* ApiResponse.swift in Sources */,
 				44E504B829BB8CD1007E0CCE /* Colors.swift in Sources */,
 				44267CBF29BA52ED00FB9424 /* NetworkManager.swift in Sources */,
+				44F38EF429C9EC840050C69B /* Mock.swift in Sources */,
 				443349A629BA513000ADCB74 /* CharacterListView.swift in Sources */,
 				4410EB7B29BCA6B100C70B06 /* Images.swift in Sources */,
 				443349A429BA513000ADCB74 /* RMDirectoryApp.swift in Sources */,
@@ -402,10 +415,13 @@
 				44267CC329BA738400FB9424 /* CharacterListViewModel.swift in Sources */,
 				44267CC129BA56EC00FB9424 /* Character.swift in Sources */,
 				4410EB8829BCD24C00C70B06 /* CacheManager.swift in Sources */,
+				44F38EF629C9ED460050C69B /* FilterFactory.swift in Sources */,
 				4440562B29BF403D00B03DD9 /* FilterState.swift in Sources */,
+				44F38EF229C9E73F0050C69B /* CharacterDetailFactory.swift in Sources */,
 				44267CCA29BA838100FB9424 /* APIRouter.swift in Sources */,
 				44DE3C2529C08EAF003A9304 /* CharacterDetailCellModel.swift in Sources */,
 				4447A49329BFD4D900C92B8F /* CharacterDetailViewModel.swift in Sources */,
+				44F38EF029C9DBB70050C69B /* CharacterListFactory.swift in Sources */,
 				44E504AD29BB7AC1007E0CCE /* CharacterDetailView.swift in Sources */,
 				4440562429BF351E00B03DD9 /* FilterView.swift in Sources */,
 				44E504B329BB7DA2007E0CCE /* ApiResponseInfo.swift in Sources */,

@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct FilterView: View {
-    @ObservedObject var viewModel: CharacterListView.ViewModel
+struct FilterView<ViewModel: CharacterListViewModelling>: FilterViewing {
+    @ObservedObject var viewModel: ViewModel
     
     var body: some View {
         VStack {

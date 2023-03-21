@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct CharacterListView: View {
-    @StateObject var viewModel = ViewModel()
+struct CharacterListView<ViewModel: CharacterListViewModelling>: CharacterListViewing {
+    @StateObject var viewModel: ViewModel
     @State private var showSheet = false
 
     var body: some View {
         ZStack {
             List {
-                if viewModel.characterList.isEmpty {
+                if viewModel.isListEmpty {
                     Text(String.noResults.localize)
                 }
                 ForEach(viewModel.characterList) { character in
@@ -43,13 +43,13 @@ struct CharacterListView: View {
             .padding()
             .ignoresSafeArea(.all, edges: .bottom)
             .scrollIndicators(.hidden)
-            .searchable(text: $viewModel.filterState.searchText)
+            .searchable(text: $viewModel.searchText)
             .navigationDestination(for: Character.self) { character in
-                CharacterDetailView(character: character)
+                CharacterDetailFactory.resolveView(character: character)
             }
             .navigationBarTitle(String.title.localize)
             .onAppear {
-                viewModel.loadCharacters()
+                viewModel.loadCharacters(loadNext: false)
             }
             .sheet(isPresented: $showSheet) {
                 FilterView(viewModel: viewModel)
@@ -74,6 +74,17 @@ struct CharacterListView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        CharacterListView()
+        let mockDataRepository = MockDataRepository()
+        CharacterListFactory.resolveView(dataRepository: mockDataRepository)
+    }
+}
+
+class MockDataRepository: DataRepositoring {
+    func getCharacters(filters: [Filter], forceNext: Bool) async -> Result<[Character], RMError> {
+        if let character = Mock.character {
+            return .success([character])
+        } else {
+            return .failure(.decoding)
+        }
     }
 }

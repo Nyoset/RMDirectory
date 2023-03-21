@@ -8,11 +8,7 @@
 import Foundation
 
 class NetworkManager {
-    static var instance: NetworkManager = {
-        return NetworkManager()
-    }()
-    
-    func call<T: Codable>(request: URLRequest) async -> Result<T, RMError> {
+    static func call<T: Codable>(request: URLRequest) async -> Result<T, RMError> {
         guard let (data, response) = try? await URLSession.shared.data(for: request) else { return .failure(.request) }
         guard let httpResponse = response as? HTTPURLResponse else { return .failure(.request) }
         if httpResponse.statusCode == 404 {
