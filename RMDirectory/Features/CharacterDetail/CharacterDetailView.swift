@@ -7,12 +7,8 @@
 
 import SwiftUI
 
-struct CharacterDetailView: View {
+struct CharacterDetailView<ViewModel: CharacterDetailViewModelling>: CharacterDetailViewing {
     @ObservedObject var viewModel: ViewModel
-    
-    init(character: Character) {
-        self.viewModel = ViewModel(character: character)
-    }
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -67,8 +63,8 @@ struct CharacterDetailView: View {
 
 struct CharacterDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        if let character = Bundle.main.decode(Character.self, from: "characterExample.json") {
-            CharacterDetailView(character: character)
+        if let character = Mock.character {
+            CharacterDetailFactory.resolveView(character: character)
         }
     }
 }

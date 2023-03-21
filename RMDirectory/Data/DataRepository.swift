@@ -7,7 +7,11 @@
 
 import Foundation
 
-class DataRepository {
+protocol DataRepositoring {
+    func getCharacters(filters: [Filter], forceNext: Bool) async -> Result<[Character], RMError>
+}
+
+class DataRepository: DataRepositoring {
     static var instance: DataRepository = {
         return DataRepository()
     }()

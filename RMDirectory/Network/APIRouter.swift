@@ -46,6 +46,6 @@ class APIRouter {
             }
         }()
         guard let request = request else { return .failure(.endOfResults) }
-        return await NetworkManager.instance.call(request: request)
+        return await NetworkManager.call(request: request)
     }
 }

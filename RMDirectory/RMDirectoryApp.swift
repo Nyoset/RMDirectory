@@ -10,10 +10,12 @@ import SwiftUI
 @main
 struct RMDirectoryApp: App {
     
+    var mainView: some CharacterListViewing = CharacterListFactory.resolveView(dataRepository: DataRepository())
+    
     var body: some Scene {
         WindowGroup {
             NavigationStack {
-                CharacterListView()
+                mainView
                 .navigationBarTitleDisplayMode(.large)
             }
         }

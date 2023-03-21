@@ -7,44 +7,43 @@
 
 import Foundation
 
-extension CharacterDetailView {
-    @MainActor class ViewModel: ObservableObject {
-        private var unknown = "unknown"
-        private var character: Character
-        @Published var cells = [CharacterDetailCell]()
-        
-        var characterSummary: String {
-            var result = ""
-            if character.gender != .unknown {
-                result.append(character.gender.rawValue)
-            }
-            if character.species != unknown && !character.type.contains(character.species) {
-                result.append(" \(character.species)")
-            }
-            if !character.type.isEmpty {
-                result.append(" \(character.type)")
-            }
-            return result
+@MainActor class CharacterDetailViewModel: CharacterDetailViewModelling {
+    private var unknown = "unknown"
+    private let character: Character
+    @Published var cells = [CharacterDetailCell]()
+    
+    
+    var characterSummary: String {
+        var result = ""
+        if character.gender != .unknown {
+            result.append(character.gender.rawValue)
         }
-        var episodeCount: String {
-            String.appeared.localize(String(character.episode.count)) + (character.episode.count > 1 ? "s" : "")
+        if character.species != unknown && !character.type.contains(character.species) {
+            result.append(" \(character.species)")
         }
-        var imageUrl: URL? {
-            character.imageURL
+        if !character.type.isEmpty {
+            result.append(" \(character.type)")
         }
-        var title: String {
-            character.name
-        }
-        
-        init(character: Character) {
-            self.character = character
-            self.cells = [
-                CharacterDetailCell(type: .summary, data: characterSummary),
-                CharacterDetailCell(type: .location, data: character.location.name.capitalized),
-                CharacterDetailCell(type: .origin, data: character.origin.name.capitalized),
-                CharacterDetailCell(type: .status, data: character.status.rawValue.capitalized),
-                CharacterDetailCell(type: .episodes, data: episodeCount)
-            ]
-        }
+        return result
+    }
+    var episodeCount: String {
+        String.appeared.localize(String(character.episode.count)) + (character.episode.count > 1 ? "s" : "")
+    }
+    var imageUrl: URL? {
+        character.imageURL
+    }
+    var title: String {
+        character.name
+    }
+    
+    init(character: Character) {
+        self.character = character
+        cells = [
+            CharacterDetailCell(type: .summary, data: characterSummary),
+            CharacterDetailCell(type: .location, data: character.location.name.capitalized),
+            CharacterDetailCell(type: .origin, data: character.origin.name.capitalized),
+            CharacterDetailCell(type: .status, data: character.status.rawValue.capitalized),
+            CharacterDetailCell(type: .episodes, data: episodeCount)
+        ]
     }
 }
